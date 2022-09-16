@@ -1,0 +1,687 @@
+/*
+Item name: Menuzord - Responsive Megamenu
+Author: marcoarib - marco.arib@gmail.com
+License: http://codecanyon.net/licenses
+*/
+
+/*
+	CONTENTS:
+	
+	 1 - MENU CONTAINER
+		- Scrollable menu
+	 2 - BRAND
+	 3 - MENU
+		- Right alignment
+		- Menu items
+		- Active/hover state
+	 4 - DROPDOWN
+		- Dropdown items
+		- Hover state
+		- Dropdown left alignment
+	 5 - DROPDOWN/MEGAMENU INDICATORS
+	 6 - MEGAMENU
+	 7 - MEGAMENU WIDTHS
+		- Half width
+		- Quarter width
+	 8 - GRID SYSTEM
+	 9 - SHOW/HIDE BUTTON (MOBILE MODE)
+		- Icon
+	10 - ICONS (parent menu items)
+	11 - SEARCH FIELD
+		- Form
+		- Input
+	12 - VERTICAL TABS
+	13 - COLOR SCHEMES
+	14 - MOBILE MODE (RESPONSIVE MODE)
+		- Menu container
+		- Brand
+		- Show/hide button
+		- Menu
+		- Dropdown
+		- Dropdown items
+		- Dropdown/megamenu indicators
+		- Megamenu
+		- Search field
+*/
+
+/* FONT
+======================================*/
+
+
+
+/* 1 - MENU CONTAINER
+======================================*/
+.menuzord,
+.menuzord *{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box; 
+	-webkit-box-sizing:border-box;
+}
+.menuzord{
+    position: relative;
+	padding: 0;
+}
+
+/* scrollable menu */
+.menuzord-menu.scrollable > .scrollable-fix{
+	display: none;
+}
+
+/* 2 - BRAND
+======================================*/
+.menuzord-brand{
+	margin: 18px 0 0 0;
+	float: left;
+	color: #666;
+	text-decoration: none;
+	font-size: 24px;
+	font-weight: 600;
+	line-height: 1.3;
+	cursor: pointer;
+}
+
+/* 3 - MENU
+======================================*/
+.menuzord-menu{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+/* Right alignment */
+.menuzord-menu.menuzord-right{
+	float: right;
+}
+/* Menu items */
+.menuzord-menu > li{
+	display: inline-block;
+	float: left;
+}
+.menuzord-menu > li > a{
+    padding:18px 10px;
+    display: block;
+    text-decoration: none;
+    font-size: 16px;
+    color: #309e98;
+	font-weight:bold;
+    outline: 0;
+}
+/*.menuzord-menu > li > a:before {
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 1px;
+    left: 50%;
+    right: 50%;
+    bottom: 15px;
+    background-color: #095770;
+    border-radius: 4px;
+    transform: skewX(-21deg);
+    -webkit-transform: skewX(-21deg);
+}
+.menuzord-menu > li:hover > a:before, .menuzord-menu > li.active > a:before{
+margin-left: -15px;
+    right: 3px;
+    width: 30px;
+	}*/	
+.menuzord-menu > li > a span{
+    z-index: 10000;
+    position: relative;
+    padding: 5px 0;
+}
+
+
+.menuzord-menu > li > a .fa{
+font-size: 20px;
+    margin-bottom: -4px;
+    display: block;
+    position: relative;
+    text-align: center;}
+/* Active/hover state (Menu items) */
+.menuzord-menu > li.active > a,
+.menuzord-menu > li:hover > a{
+    color: #fff;
+}
+
+
+/* 4 - DROPDOWN
+======================================*/
+.menuzord-menu ul.dropdown,
+.menuzord-menu ul.dropdown li ul.dropdown{
+	list-style: none;
+    margin: 0;
+    padding: 0;   
+	display: none;
+    position: absolute;
+    z-index: 99;
+	min-width: 180px;
+	white-space: nowrap;
+	background: #fff;
+	border-top:2px solid #f07039;
+	
+	border-bottom-left-radius:3px;
+	border-bottom-right-radius:3px;
+	
+	box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.2);
+}
+.menuzord-menu ul.dropdown li ul.dropdown{
+    left: 100%;
+}
+/* Dropdown items */
+.menuzord-menu ul.dropdown li{
+	clear: both;
+	width: 100%;
+	border: 0 none;
+	font-size: 12px;
+	position: relative;
+	/*border-bottom:1px solid #cccccc;*/
+}
+.menuzord-menu ul.dropdown li:first-child{
+	border:none;
+}
+.menuzord-menu ul.dropdown li a{
+	width: 100%;
+	background: none;
+	padding:5px 25px;
+	color: #adadad;
+	text-decoration: none;
+	display: inline-block;
+	float: left;
+	clear: both;
+	position: relative;
+	outline: 0;
+	font-size:12px;
+	font-weight:700;
+	text-transform:uppercase;
+}
+/* Hover state (dropdown items) */
+.menuzord-menu ul.dropdown li:hover > a{
+	color:#c65400;
+}
+
+/* Dropdown left alignment */
+.menuzord-menu ul.dropdown.dropdown-left{
+	left: none;
+}
+.menuzord-menu ul.dropdown li ul.dropdown.dropdown-left{
+	left: -100%;
+}
+
+/* 5 - DROPDOWN/MEGAMENU INDICATORS
+======================================*/
+.menuzord-menu li .indicator{
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    line-height: 0;
+}
+.menuzord-menu > li > a .indicator{
+    width: 6px;
+    height: 6px;
+    border-bottom: solid 1px;
+    border-right: solid 1px;
+    border-color: #ccc;
+    padding: 0;
+    bottom: 12px;
+    left: 50%;
+    margin-left: -3px;
+    transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);}
+.menuzord-menu li ul.dropdown li .indicator{
+	position: absolute;
+	top: 8px;
+	right: 10px;
+	font-size: 15px;
+}
+
+/* 6 - MEGAMENU
+======================================*/
+.menuzord-menu > li > .megamenu{
+	width: 100%;
+	padding: 20px 30px;
+	left: 0;
+	position: absolute;
+	display: none;
+	z-index: 99;
+	border-top:2px solid #f07039;
+	background: #fff;
+	
+	border-bottom-left-radius:3px;
+	border-bottom-right-radius:3px;
+	
+	box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.2);
+	-webkit-box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.2);
+}
+
+.menuzord-menu > li > .megamenu ul{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+.menuzord-menu > li > .megamenu ul li{
+	padding:10px 0;
+	position:relative;
+	margin:0 0 3px 0;
+	border-bottom:1px solid #f0f0f0;
+	text-transform:uppercase;
+	
+	-webkit-transition: all 0.15s linear;
+	-moz-transition: all 0.15s linear;
+	-o-transition: all 0.15s linear;
+	transition: all 0.15s linear;
+}
+.menuzord-menu > li > .megamenu ul li:hover{
+	border-bottom:1px solid #323232;
+}
+.menuzord-menu > li > .megamenu ul li:before{
+	position:absolute;
+	bottom:-4px;
+	right:-1px;
+	color:#323232;
+	content:"/";
+	z-index:100;
+	font-size:7px;
+}
+.menuzord-menu > li > .megamenu ul li a{
+	color:#adadad;
+	font-size:11px;
+	font-weight:700;
+}
+.menuzord-menu > li > .megamenu ul li a:hover{
+	color:#f07039;
+}
+
+
+/* 7 - MEGAMENU WIDTHS
+======================================*/
+/* Half width */
+.menuzord-menu > li > .megamenu.megamenu-half-width{
+	width: 50%;
+	left: auto;
+}
+/* Quarter width */
+.menuzord-menu > li > .megamenu.megamenu-quarter-width{
+	width: 25%;
+	left: auto;
+}
+
+/* 8 - GRID SYSTEM
+======================================*/
+.menuzord-menu > li > .megamenu .megamenu-row{
+	width: 100%;
+	margin-top: 15px;
+}
+.menuzord-menu > li > .megamenu .megamenu-row:first-child {
+	margin-top: 0;
+}
+.menuzord-menu > li > .megamenu .megamenu-row:before,
+.menuzord-menu > li > .megamenu .megamenu-row:after {
+	display: table;
+	content: "";
+	line-height: 0;
+}
+.menuzord-menu > li > .megamenu .megamenu-row:after {
+	clear: both;
+}
+.menuzord-menu > li > .megamenu .megamenu-row .col1,
+.menuzord-menu > li > .megamenu .megamenu-row .col2,
+.menuzord-menu > li > .megamenu .megamenu-row .col3,
+.menuzord-menu > li > .megamenu .megamenu-row .col4,
+.menuzord-menu > li > .megamenu .megamenu-row .col5,
+.menuzord-menu > li > .megamenu .megamenu-row .col6,
+.menuzord-menu > li > .megamenu .megamenu-row .col7,
+.menuzord-menu > li > .megamenu .megamenu-row .col8,
+.menuzord-menu > li > .megamenu .megamenu-row .col9,
+.menuzord-menu > li > .megamenu .megamenu-row .col10,
+.menuzord-menu > li > .megamenu .megamenu-row .col11,
+.menuzord-menu > li > .megamenu .megamenu-row .col12{
+	display: block;
+	min-height: 20px;
+	float: left;
+	margin-left: 3%;
+}
+.menuzord-menu > li > .megamenu .megamenu-row [class*="col"]:first-child {
+	margin-left: 0;
+}
+.menuzord-menu > li > .megamenu .megamenu-row .col1{
+	width: 5.583333333333%;
+}
+.menuzord-menu > li > .megamenu .megamenu-row .col2{
+	width: 14.166666666666%;
+}
+.menuzord-menu > li > .megamenu .megamenu-row .col3{
+	width: 22.75%;
+}
+.menuzord-menu > li > .megamenu .megamenu-row .col4{
+	width: 31.333333333333%;
+}
+.menuzord-menu > li > .megamenu .megamenu-row .col5{
+	width: 39.916666666667%;
+}
+.menuzord-menu > li > .megamenu .megamenu-row .col6{
+	width: 48.5%;
+}
+.menuzord-menu > li > .megamenu .megamenu-row .col7{
+	width: 57.083333333333%;
+}
+.menuzord-menu > li > .megamenu .megamenu-row .col8{
+	width: 65.666666666667%;
+}
+.menuzord-menu > li > .megamenu .megamenu-row .col9{
+	width: 74.25%;
+}
+.menuzord-menu > li > .megamenu .megamenu-row .col10{
+	width: 82.833333333334%;
+}
+.menuzord-menu > li > .megamenu .megamenu-row .col11{
+	width: 91.416666666667%;
+}
+.menuzord-menu > li > .megamenu .megamenu-row .col12{
+	width: 100%;
+}
+
+/* 9 - SHOW/HIDE BUTTON (MOBILE MODE)
+======================================*/
+.menuzord .showhide {
+	width: 45px;
+    height: 45px;
+    right: 0;
+    padding: 9px 0 11px 0;
+    margin-right: 85px;
+    display: none;
+    text-decoration: none;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Show/hide button icon */
+.menuzord .showhide em{
+    width: 20px;
+    height: 3px;
+    margin: 4px 12px 0;
+    float: right;
+    background: #fff;
+}
+.menuzord .showhide:hover em{
+	background-color:#a9abae;
+}
+/* 10 - ICONS (parent menu items)
+======================================*/
+
+
+/* 11 - SEARCH FIELD
+======================================*/
+/* Form */
+.menuzord-menu > li.search form{
+	float: left;
+	padding: 22px 16px 17px;
+}
+/* Input */
+.menuzord-menu > li.search form input[type="text"]{
+	width: 160px;
+	padding: 5px 10px;
+	border: none;
+	background: #f0f0f0;
+	border-radius: 2px;
+	outline: 0;
+	-o-transition: width 1s ease-out;
+	-moz-transition: width 1s ease-out;
+	-webkit-transition: width 1s ease-out;
+	transition: width 1s ease-out;
+}
+.menuzord-menu > li.search form:hover input[type="text"]{
+	width: 160px;
+}
+
+/* 12 - VERTICAL TABS
+======================================*/
+.menuzord-tabs{
+	width: 100%;
+	float: left;
+}
+.menuzord-tabs-nav{
+	width: 20%;
+	margin: 0;
+	padding: 0;
+	float: left;
+	list-style: none;
+}
+.menuzord-tabs-nav > li > a{
+	width: 100%;
+	padding: 7px 16px;
+	float: left;
+	font-size: 13px;
+	text-decoration: none;
+	color: #666;
+	border: solid 1px #f0f0f0;
+	outline: 0;
+}
+.menuzord-tabs-nav li.active a,
+.menuzord-tabs-nav li:hover a{
+	background: #f0f0f0;
+}
+.menuzord-tabs-content{
+	width: 80%;
+	min-height: 30px;
+	padding: 20px;
+	float: right;
+	display: none;
+	font-size: 13px;
+	border: solid 1px #f0f0f0;
+}
+.menuzord-tabs-content.active{
+	display: block;
+}
+
+/* 13 - COLOR SCHEMES
+======================================*/
+/* blue */
+.menuzord.blue .menuzord-menu > li.active > a, 
+.menuzord.blue .menuzord-menu > li:hover > a, 
+.menuzord.blue .menuzord-menu ul.dropdown li:hover > a{ 
+	color: #4A89DC; 
+}
+/* green */
+.menuzord.green .menuzord-menu > li.active > a, 
+.menuzord.green .menuzord-menu > li:hover > a, 
+.menuzord.green .menuzord-menu ul.dropdown li:hover > a{ 
+	color: #37BC9B; 
+}
+/* red */
+.menuzord.red .menuzord-menu > li.active > a, 
+.menuzord.red .menuzord-menu > li:hover > a, 
+.menuzord.red .menuzord-menu ul.dropdown li:hover > a{ 
+    color: #fff;
+	background-color: #d2ce24;
+}
+/* orange */
+.menuzord.orange .menuzord-menu > li.active > a, 
+.menuzord.orange .menuzord-menu > li:hover > a, 
+.menuzord.orange .menuzord-menu ul.dropdown li:hover > a{ 
+	color: #ff670f; 
+}
+/* yellow */
+.menuzord.yellow .menuzord-menu > li.active > a, 
+.menuzord.yellow .menuzord-menu > li:hover > a, 
+.menuzord.yellow .menuzord-menu ul.dropdown li:hover > a{ 
+	color: #F6BB42; 
+}
+/* purple */
+.menuzord.purple .menuzord-menu > li.active > a, 
+.menuzord.purple .menuzord-menu > li:hover > a, 
+.menuzord.purple .menuzord-menu ul.dropdown li:hover > a{ 
+	color: #967ADC; 
+}
+/* pink */
+.menuzord.pink .menuzord-menu > li.active > a, 
+.menuzord.pink .menuzord-menu > li:hover > a, 
+.menuzord.pink .menuzord-menu ul.dropdown li:hover > a{ 
+	color: #D770AD; 
+}
+
+/* 14 - MOBILE MODE (RESPONSIVE MODE)
+======================================*/
+@media (max-width: 992px){
+	/* Responsive menu container */
+.menuzord-responsive.menuzord{
+		padding: 0 !important;
+	}
+	
+.menuzord-menu > li > a span{
+	background: none;
+}	
+	
+	/* Brand */
+	.menuzord-responsive .menuzord-brand{
+		margin: 8px 30px 10px 20px;
+		font-size: 20px;
+		line-height: 1.55;
+	}
+	
+	/* Show/hide button */
+
+	
+	/* Menu */
+	.menuzord-responsive .menuzord-menu{
+    z-index: 99999;
+    left: 0px;
+    right: 0px;
+    position: absolute;
+    top: 100%;
+    background-color:rgba(1, 1, 1, 0.95);
+	}
+	/* scrollable menu*/
+	.menuzord-responsive .menuzord-menu.scrollable{
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+	.menuzord-responsive .menuzord-menu.scrollable > .scrollable-fix{
+		display: block;
+	}
+	
+	/* Menu items */
+	.menuzord-responsive .menuzord-menu > li{
+		width: 100%;
+		display: block;
+		position: relative;
+	}
+	.menuzord-responsive .menuzord-menu > li > a{
+		width: 100%;
+		padding: 10px 20px;
+		display: block;
+		border-top: solid 1px #2f4495;
+	}
+	.menuzord-responsive .menuzord-menu > li:first-child > a{
+
+	}
+	
+	/* Dropdown */
+	.menuzord-responsive .menuzord-menu ul.dropdown,
+	.menuzord-responsive .menuzord-menu ul.dropdown li ul.dropdown{
+		width: 100%;
+		left: 0;
+		position: static;
+		border: none;
+		background: #fff;
+		float: left;
+	}
+	
+	/* Dropdown items */
+	.menuzord-responsive .menuzord-menu ul.dropdown li{
+		position: relative;
+	}
+	.menuzord-responsive .menuzord-menu ul.dropdown li a{
+		border-bottom: solid 1px rgb(241, 241, 241);
+	}
+	/*.menuzord-responsive .menuzord-menu.menuzord-indented > li > ul.dropdown > li > a{ padding-left: 40px !important; }
+	.menuzord-responsive .menuzord-menu.menuzord-indented > li > ul.dropdown > li > ul.dropdown > li > a{ padding-left: 60px !important; }
+	.menuzord-responsive .menuzord-menu.menuzord-indented > li > ul.dropdown > li > ul.dropdown > li > ul.dropdown > li > a{ padding-left: 80px !important; }
+	.menuzord-responsive .menuzord-menu.menuzord-indented > li > ul.dropdown > li:hover > a{ padding-left: 50px !important; }
+	.menuzord-responsive .menuzord-menu.menuzord-indented > li > ul.dropdown > li > ul.dropdown > li:hover > a{ padding-left: 70px !important; }
+	.menuzord-responsive .menuzord-menu.menuzord-indented > li > ul.dropdown > li > ul.dropdown > li > ul.dropdown > li:hover > a{ padding-left: 90px !important; }*/
+	
+	/* Dropdown/megamenu indicators */
+	.menuzord-responsive .menuzord-menu li .indicator{		
+    position: absolute;
+    right: 35px;
+	    width: 16px;
+    height: 16px;
+    left: inherit;
+    top: 12px;
+    font-size: 22px;
+    text-align: center;
+    line-height: 23px;
+	}
+	.menuzord-responsive .menuzord-menu li ul.dropdown li .indicator{
+		height: 38px;
+		right: 0;
+		top: 0;
+		font-size: 18px;
+		line-height: 36px;
+	}
+	
+	/* Megamenu */
+	.menuzord-responsive .menuzord-menu > li > .megamenu{
+		width: 100% !important;
+		left: 0 !important;
+		position: static;
+		border-top: none;
+		border-bottom: solid 1px #f0f0f0;
+	}
+	.menuzord-responsive .menuzord-menu > li > .megamenu .megamenu-row [class*="col"]{
+		float: none;
+		display: block;
+		width: 100% !important;
+		margin-left: 0;
+		margin-top: 15px;
+	}
+	.menuzord-responsive .menuzord-menu > li > .megamenu .megamenu-row:first-child  [class*="col"]:first-child {
+		margin-top: 0;
+	}
+	.menuzord-responsive .menuzord-menu > li > .megamenu .megamenu-row{
+		margin-top: 0;
+	}
+	
+	/* Search field */
+	.menuzord-responsive .menuzord-menu > li.search form{
+		width: 100%;
+		margin: 4px 0;
+		padding: 10px 16px !important;
+	}
+	.menuzord-responsive .menuzord-menu > li.search form input[type="text"]{
+		width: 100%;
+	}
+	
+	/* Tabs */
+	.menuzord-responsive .menuzord-tabs-nav{
+		width: 100%;
+	}
+	.menuzord-responsive .menuzord-tabs-content{
+		width: 100%;
+	}
+}
+
+/*new custom animation*/
+.menuzord-menu > li > a{
+	position:relative;}
+
+
+@-webkit-keyframes mymove {
+    0% {height: 0%; top:50%;}
+	100% {height: 100%; top:00%;}
+}
+
+@keyframes mymove {
+    0% {height: 0%; top:50%;}
+	100% {height: 100%; top:00%;}
+}
+
+
+.menuzord-menu ul.dropdown, .menuzord-menu ul.dropdown li ul.dropdown {
+    border-top: none !important;
+
+}
